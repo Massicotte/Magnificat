@@ -21,9 +21,23 @@ Saint-François, la lactation des meufs trans et le Miracle que c'est.
 
 ## Installation
 
-```bash
-pip install opencv-python numpy PySide6 sounddevice nudenet ultralytics "mediapipe==0.10.21"
+Installer dans un environnement dédié pour éviter que mediapipe ne rétrograde
+`numpy`/`protobuf` pour tes autres projets (deepface, retina-face, etc.) :
+
+```powershell
+py -3.12 -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
 ```
+
+Les versions sont épinglées (`numpy<2`, `opencv<5`) pour éviter le long
+« backtracking » du résolveur pip avec mediapipe.
+
+Notes :
+
+- Le premier lancement télécharge `yolov8s-worldv2.pt` (24 Mo) puis le met en cache.
+- Les messages `inference_feedback_manager`, XNNPACK ou `torch.jit.load` au
+  démarrage sont des avertissements internes bénins de MediaPipe/torch.
 
 ## Lancement
 

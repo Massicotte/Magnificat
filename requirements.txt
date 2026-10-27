@@ -1,0 +1,8 @@
+opencv-python
+numpy
+PySide6
+sounddevice
+nudenet
+ultralytics
+mediapipe==0.10.21
+git+https://github.com/openai/CLIP.git
